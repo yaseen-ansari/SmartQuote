@@ -1,70 +1,214 @@
-# Getting Started with Create React App
+# SmartQuote - Website Development Quotation Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A complete frontend-only responsive web application built for freelancers and small web development agencies to generate intelligent website development quotations for clients.
 
-## Available Scripts
+## 🎯 Features
 
-In the project directory, you can run:
+- **Manual Quotation Creation**: Create detailed quotations by specifying page complexity, features, and requirements
+- **Figma Auto-Suggest**: Upload Figma files for intelligent pricing suggestions based on design analysis
+- **Dynamic Pricing**: Easily configurable pricing structure stored in JSON format
+- **Export Options**: Export quotations as PDF or JSON for easy sharing with clients
+- **Responsive Design**: Fully responsive interface that works on all devices
+- **Real-time Calculations**: Live pricing updates as you modify quotation parameters
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js 18** - Frontend framework
+- **TailwindCSS 3** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **jsPDF & html2canvas** - PDF export functionality
+- **JSON Configuration** - Editable pricing structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version 14 or higher)
+- npm or yarn package manager
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd smartquote
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run eject`
+4. Open your browser and navigate to `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Build for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+src/
+├── components/
+│   └── Layout.js          # Main layout with navigation
+├── pages/
+│   ├── Home.js           # Dashboard/Home page
+│   ├── ManualQuotation.js # Manual quotation creation
+│   ├── AutoSuggest.js    # Figma upload and analysis
+│   ├── QuotationPreview.js # Quotation preview and export
+│   └── Settings.js       # Pricing configuration
+├── pricing.json          # Editable pricing configuration
+├── index.css            # Global styles and Tailwind imports
+├── App.js               # Main app component with routing
+└── index.js             # Application entry point
+```
 
-## Learn More
+## 💰 Pricing Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application uses a JSON-based pricing system that can be easily modified:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Default Pricing Structure
 
-### Code Splitting
+```json
+{
+  "tiers": {
+    "simple": 1500,     // Basic pages with minimal functionality
+    "standard": 3000,   // Medium complexity with forms and interactions
+    "advanced": 6000    // Complex pages with advanced features
+  },
+  "modifiers": {
+    "animation": 300,        // Cost per animation element
+    "api": 800,             // Cost per API integration
+    "long_page": 500,       // Additional cost for long scrolling pages
+    "reused_component": -200 // Discount per reused component
+  },
+  "optional_features": {
+    "seo_optimization": 3000, // Complete SEO setup
+    "cms_support": 5000,      // Content Management System
+    "admin_panel": 8000,      // Custom admin panel
+    "hosting_support": 2000   // Hosting setup and deployment
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Modifying Pricing
 
-### Analyzing the Bundle Size
+You can update pricing in two ways:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Visual Editor**: Use the Settings page interface to modify values
+2. **JSON Editor**: Edit the JSON structure directly in the Settings page
+3. **File Edit**: Manually edit `src/pricing.json`
 
-### Making a Progressive Web App
+## 📱 Pages Overview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 1. Home/Dashboard
+- Welcome screen with application overview
+- Quick access to main features
+- Feature highlights and benefits
 
-### Advanced Configuration
+### 2. Manual Quotation
+- **Page Setup**: Configure number of pages and complexity
+- **Page Configuration**: Set tier (Simple/Standard/Advanced) for each page
+- **Modifiers**: Add animations, API integrations, and other features
+- **Optional Features**: Global project add-ons like SEO, CMS, etc.
+- **Real-time Pricing**: Live calculation sidebar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Figma Auto-Suggest
+- **Upload Options**: Support for .fig files or Figma URLs
+- **Design Analysis**: Mock AI analysis of design complexity
+- **Component Detection**: Automatic page and feature detection
+- **Editable Suggestions**: Modify AI suggestions before generating quote
 
-### Deployment
+### 4. Quotation Preview
+- **Detailed Breakdown**: Comprehensive table of all pages and costs
+- **Project Summary**: Overview statistics and totals
+- **Export Options**: PDF and JSON export functionality
+- **Professional Layout**: Client-ready quotation format
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 5. Settings
+- **Visual Editor**: User-friendly interface for pricing updates
+- **JSON Editor**: Direct JSON editing with validation
+- **Configuration Download**: Export pricing configuration
+- **Reset Options**: Restore default values
 
-### `npm run build` fails to minify
+## 🎨 Design Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Modern UI**: Clean, professional interface using TailwindCSS
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Loading States**: Smooth loading animations and feedback
+- **Error Handling**: Comprehensive error messages and validation
+
+## 📊 Export Functionality
+
+### PDF Export
+- Professional quotation layout
+- Multi-page support for large quotations
+- High-quality rendering using html2canvas
+
+### JSON Export
+- Complete quotation data structure
+- Includes all pricing and configuration details
+- Perfect for backup or integration with other systems
+
+## 🔧 Customization
+
+### Styling
+- Modify `src/index.css` for global styles
+- Update `tailwind.config.js` for theme customization
+- All components use TailwindCSS utility classes
+
+### Pricing Logic
+- All pricing calculations are in component methods
+- Easy to modify formulas and add new features
+- Centralized pricing data in JSON format
+
+### Features
+- Add new page tiers by updating the pricing JSON
+- Create new modifiers with custom calculation logic
+- Extend optional features as needed
+
+## 🚀 Deployment
+
+The application is frontend-only and can be deployed to any static hosting service:
+
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your repository for automatic deployments
+- **GitHub Pages**: Use the build folder for static hosting
+- **AWS S3**: Upload build files to S3 bucket with static hosting
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support, please create an issue in the repository or contact the development team.
+
+## 🔮 Future Enhancements
+
+- **Real Figma Integration**: Connect to Figma API for actual design analysis
+- **Client Portal**: Allow clients to view and approve quotations
+- **Project Templates**: Save and reuse common project configurations
+- **Multi-currency Support**: Support for different currencies
+- **Team Collaboration**: Multi-user support with role-based access
+- **Analytics Dashboard**: Track quotation success rates and pricing trends
+
+---
+
+Built with ❤️ for the web development community
