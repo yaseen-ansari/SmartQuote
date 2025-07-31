@@ -1,0 +1,19 @@
+{
+  "tiers": {
+    "simple": 1500,
+    "standard": 3000,
+    "advanced": 6000
+  },
+  "modifiers": {
+    "animation": 300,
+    "api": 800,
+    "long_page": 500,
+    "reused_component": -200
+  },
+  "optional_features": {
+    "seo_optimization": 3000,
+    "cms_support": 5000,
+    "admin_panel": 8000,
+    "hosting_support": 2000
+  }
+}
